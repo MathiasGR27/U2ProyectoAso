@@ -14,13 +14,13 @@ function registro(){
     global $conn;
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
-    $query="INSERT INTO usuarios (nombres,correo,contraseña) values ('".$data['nombre']."','".$data['correo']."','".$data['contraseña']."')";
+    $query="INSERT INTO registros (nombres,correo,contraseña) values ('".$data['nombre']."','".$data['correo']."','".$data['contraseña']."')";
     pg_query($conn, $query);
 }
 
 function mostrar(){
     global $conn;
-    $query = "SELECT * FROM usuarios";
+    $query = "SELECT * FROM registros";
     $result = pg_query($conn, $query);
     $datos = [];
     while ($fila = pg_fetch_assoc($result)) {
