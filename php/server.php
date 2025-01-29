@@ -14,7 +14,7 @@ function registro(){
     global $conn;
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
-    $query="INSERT INTO registros (nombres,correo,contraseña) values ('".$data['nombre']."','".$data['correo']."','".$data['contraseña']."')";
+    $query="INSERT INTO registros (nombreyapellido,correo,contraseña) values ('".$data['nombre']."','".$data['correo']."','".$data['contraseña']."')";
     pg_query($conn, $query);
 }
 
