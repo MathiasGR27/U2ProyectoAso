@@ -1,7 +1,7 @@
 <?php
-$host = 'proyectoaso.postgres.database.azure.com';
+$host = 'u2proyectoaso.postgres.database.azure.com';
 $dbname = 'postgres';
-$username = 'grupoaso';
+$username = 'megualpa';
 $password = 'Mathias23500.';
 
 try {
