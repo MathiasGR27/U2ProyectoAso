@@ -230,55 +230,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Escuchar el evento submit del formulario
-        document.getElementById("form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita el envío del formulario tradicional
-    
-            // Recopilar los datos del formulario
-            const nombre = document.getElementById("nombre").value;
-            const correo = document.getElementById("correo").value;
-            const contraseña = document.getElementById("contraseña").value;
-    
-            // Verificar que se aceptaron los términos
-            const terminos = document.getElementById("terminos").checked;
-            if (!terminos) {
-                alert("Debe aceptar los términos y condiciones.");
-                return;
-            }
-    
-            // Crear un objeto con los datos del formulario
-            const datos = {
-                nombre: nombre,
-                correo: correo,
-                contraseña: contraseña
-            };
-    
-            // Enviar los datos al servidor usando fetch API
-            fetch('server.php?funcion=registro', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(datos) // Convierte los datos a JSON
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Usuario registrado con éxito!");
-                    window.location.href = "login.html"; // Redirige al login o a donde quieras
-                } else {
-                    alert(data.error || "Hubo un error inesperado.");
-                }
-            })
-            .catch(error => {
-                console.error('Error al registrar:', error);
-                alert("Hubo un error al registrar el usuario.");
-            });
-        });
-    </script>
-    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/5f232b4c5b.js" crossorigin="anonymous"></script>
